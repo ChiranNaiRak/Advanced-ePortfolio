@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chiran Nai Rak</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./app.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("1swhe1oiKo6UKF8Uq");
+      })();
+    </script>
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <!-- this is js event listener -->
+      <!-- the event is gonna hold our mouse location -->
+      <!-- use BEM which is block element modifier to seperate and write clean and reusable code-->
+      <nav>
+        <figure>
+          <img
+            src="./assets/chi-high-resolution-logo-white-on-transparent-background (1).png"
+            alt=""
+            id="personal-logo"
+          />
+        </figure>
+        <ul class="nav__link--list">
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >About</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Projects</a
+            >
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+            >
+              <i class="fas fa-adjust"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hello</h1>
+          <h1 class="title2 maroon">I'm Chiran.</h1>
+          <p class="header__para">
+            I'm a <b class="maroon">Creative Frontend Developer</b>
+            <br />
+            committed to crafting visually stunning and intuitive user
+            interfaces.
+            <br />
+            Here's more
+            <b class="maroon click" onclick="toggleModal()">about me!</b>
+          </p>
+          <div class="social__list">
+            <a
+              href="https://www.linkedin.com/in/chiran-nai-rak-864803165/"
+              class="social__link click"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin-in" style="color: #ffffff"></i>
+            </a>
+            <a
+              href="https://github.com/ChiranNaiRak"
+              class="social__link click"
+              target="_blank"
+            >
+              <i class="fab fa-github" style="color: #ffffff"></i>
+            </a>
+            <a href="#" class="social__link click" target="_blank">
+              <!-- for resumes, use target instead of download -->
+              <i class="far fa-file-pdf" style="color: #ffffff"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <a href="#">
+        <button class="mail__button click" onclick="toggleModal()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </a>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">Here's a bit of me!</h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software Engineer.
+          </h4>
+          <p class="modal__para">
+            I'm a 22 year-old Malaysian
+            <b class="maroon">frontend software engineer</b> with a burning
+            passion for developing
+            <br />
+            responsive and creative websites.
+            <br />
+            I strive to
+            <b class="maroon">create beautiful</b>
+            <br />
+            and <b class="maroon">user-friendly interfaces</b>
+            with
+            <br />
+            eagerness to learn and grow.
+          </p>
+          <div class="modal__languages">
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt=""
+                class="modal__language--img"
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+                alt=""
+                class="modal__language--img"
+              />
+              <span class="language__name">CSS</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt=""
+                class="modal__language--img"
+              />
+              <span class="language__name">JavaScript</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png"
+                alt=""
+                class="modal__language--img"
+              />
+              <span class="language__name">React</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's talk shop!</h3>
+          <h3 class="modal__sub-title modal__sub-title--contact">
+            I'm currently open to new opportunities.
+          </h3>
+          <form id="contact__form" onsubmit="contact(event)">
+            <!-- remove the action, add onsubmit ="contact()" which we'll be written in js and so when we submit this form, we want to call a contact function  -->
+            <div class="form__item">
+              <label for="Name" class="form__item--label">Name</label>
+              <input type="text" class="input" name="user_name" />
+              <!-- the name is user_name for the JS part later -->
+            </div>
+            <div class="form__item">
+              <label for="Email" class="form__item--label">Email</label>
+              <input type="email" class="input" name="user_email" />
+            </div>
+            <div class="form__item">
+              <label for="Message" class="form__item--label">Message</label>
+              <textarea class="input" name="message" type="text"></textarea>
+            </div>
+            <div class="button__submit">
+              <button id="contact__submit" class="form__submit click">
+                Send it my way!
+              </button>
+              <!-- inside the form so that when it is clicked, the action designated in the form tag would run -->
+            </div>
+          </form>
+          <div class="modal__overlay">
+            <div class="wrapper modal__overlay--loading">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="shadow"></div>
+              <div class="shadow"></div>
+              <div class="shadow"></div>
+            </div>
+          </div>
+          <div class="modal__success modal__successful">
+            Thanks for the message! Looking forward to speaking to you soon.
+          </div>
+        </div>
+      </div>
+      <img src="./assets/circle.svg" alt="" class="shape shape--0" />
+      <img src="./assets/squiggly.svg" alt="" class="shape shape--1" />
+      <img src="./assets/circle.svg" alt="" class="shape shape--2" />
+      <img src="./assets/triangle.svg" alt="" class="shape shape--3" />
+      <img src="./assets/circle.svg" alt="" class="shape shape--4" />
+      <img src="./assets/semi circle.svg" alt="" class="shape shape--5" />
+      <img src="./assets/squiggly.svg" alt="" class="shape shape--6" />
+      <img src="./assets/circle.svg" alt="" class="shape shape--7" />
+      <img src="./assets/triangle.svg" alt="" class="shape shape--8" />
+    </section>
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here's some of my <b class="maroon">projects</b>!
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/blinker mockup.png"
+                  class="project__img"
+                  alt=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Project Name</h3>
+                  <h4 class="project__description--subtitle">
+                    HTML, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, a. Labore, quam! Aperiam labore, autem in eaque dolorem laborum accusantium.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/ChiranNaiRak"
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fab fa-github click" style="color: #ffffff"></i>
+                    </a>
+                    <a
+                      href="https://github.com/ChiranNaiRak"
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fas fa-link click" style="color: #ffffff"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/blinker mockup.png"
+                  class="project__img"
+                  alt=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Project Name</h3>
+                  <h4 class="project__description--subtitle">
+                    HTML, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae atque ratione iste. Doloremque aperiam officiis corporis nam, esse accusantium velit.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/ChiranNaiRak" 
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fab fa-github click" style="color: #ffffff"></i>
+                    </a>
+                    <a
+                      href="https://github.com/ChiranNaiRak"
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fas fa-link click" style="color: #ffffff"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/blinker mockup.png"
+                  class="project__img"
+                  alt=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Project Name</h3>
+                  <h4 class="project__description--subtitle">
+                    HTML, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis excepturi velit enim recusandae corporis quaerat consequuntur alias perferendis tempora omnis?
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/ChiranNaiRak"
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fab fa-github click" style="color: #ffffff"></i>
+                    </a>
+                    <a
+                      href="https://github.com/ChiranNaiRak"
+                      target="_blank" class="project__description--link"
+                    >
+                      <i class="fas fa-link click" style="color: #ffffff"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="row footer__row">
+          <a href="#" class="footer__anchor">
+            <figure class="footer__logo">
+              <img
+                src="./assets/chi-high-resolution-logo-white-on-transparent-background (1).png"
+                alt=""
+                class="footer__logo--img"
+              />
+            </figure>
+            <span class="footer__logo--popper">
+              Top
+              <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </span>
+          </a>
+          <div class="footer__social--list">
+            <a
+              href="https://github.com/ChiranNaiRak" target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/chiran-nai-rak-864803165/" target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >LinkedIn</a
+            >
+            <a
+              href="#" onclick="toggleModal()"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >Contact</a
+            >
+            <a
+              href="#" target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+              >Resume</a
+            >
+          </div>
+          <div class="footer__copyright">Copyright © 2023 Chiran Nai Rak</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

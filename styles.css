@@ -1,0 +1,935 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style-type: none;
+}
+
+section {
+  background-color: rgb(245, 245, 245);
+  transition: all 450ms ease;
+}
+
+p {
+  line-height: 1.5;
+  font-size: 16px; /* increment your pixels by 4 or 8 pixels, usually the margins are incremented by 8 and the font sizes are incremented by 2, all even numbers */
+  display: block;
+}
+
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.click {
+  cursor: pointer;
+  transition: all 300ms ease; /* this allows smooth transitions between hover and active states of element */
+}
+
+.click:hover {
+  transform: scale(
+    1.1
+  ); /* when the cursor hovers on the elements, it'll scale the elements by 1.1 */
+}
+
+.click:active {
+  transform: scale(
+    0.8
+  ); /* when the cursor clicks on the element, it'll scale the element by 0.8 */
+}
+
+.mail__button {
+  width: 70px;
+  height: 70px;
+  font-size: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #242424;
+  position: fixed; /* this is to make sure the mail button stays at the bottom right corner of the website */
+  bottom: 32px;
+  right: 40px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
+  color: #f0f0f0;
+}
+
+button {
+  cursor: pointer; /* this makes it look clickable */
+}
+
+.container {
+  /* caps top and bottom */ /* give padding to top and bottom */
+  padding: 50px 0;
+  width: 100%;
+}
+
+.row {
+  /* caps left and right */ /* give margin to left and right */
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.link__hover-effect {
+  position: relative; /* needs to be relative in concj with absolute */
+}
+
+.link__hover-effect:after {
+  /* target the after pseudo element which lets us add things after the tags */
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 3px;
+  width: 0; /* starting, with zero width, only when we hover over it, the width goes to 100% */
+  background-color: #242424;
+  right: 0; /* resting place is on the right but when we hover over the anchors, we wanna come from the left */
+  transition: all 300ms ease;
+}
+
+.link__hover-effect:hover::after {
+  /* need to target the after pseudo element when we hover */
+  left: 0;
+  width: 100%;
+}
+
+.link__hover-effect--black::after {
+  background-color: #242424;
+}
+
+.link__hover-effect--white::after {
+  background-color: #f0f0f0;
+}
+
+input,
+textarea {
+  width: 100%;
+  background-color: #242424;
+  color: #f0f0f0;
+  outline: none;
+  border: 3px solid #c0c4cc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 40px;
+  transition: all 300ms ease;
+}
+
+textarea {
+  resize: vertical; /* this is so that you can only resize the textarea vertically */
+  height: 100px;
+  margin-top: 8px;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #dcdfe6;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #790252;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav,
+.header,
+.scroll {
+  opacity: 1;
+  visibility: visible;
+  transition: all 600ms 600ms ease; /* duration then delay */
+}
+
+.modal__open nav,
+.modal__open .header,
+.modal__open .scroll {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 400ms ease;
+}
+
+/* LANDING PAGE */
+
+#landing-page {
+  min-height: 100vh; /* The reason why is that when we're on the landing page we dont want to see the other sections of the website while we're on the landing page on any platform  */
+}
+
+.header {
+  position: absolute; /* This will allow you to center items */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* not hard coding the wdith will allow the website to be responsive and even if you resize it, the width will never go below 100% */
+  max-width: 1000px;
+  padding: 0 30px;
+}
+
+.title {
+  font-size: 120px;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1;
+}
+
+.title2 {
+  font-size: 120px;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1;
+}
+
+.header__para {
+  font-size: 24px;
+  line-height: 2;
+  max-width: 450px;
+  margin: 0;
+}
+
+.maroon {
+  color: #790252;
+}
+
+/* NAVIGATION BAR */
+
+#personal-logo {
+  width: 100px;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100px;
+}
+
+.nav__link--list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__link {
+  margin: 0 12px;
+}
+
+.nav__link--anchor {
+  font-size: 16px;
+  color: #242424;
+  font-weight: 700;
+}
+
+.fa-adjust {
+  font-size: 20px;
+}
+
+.social__list {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.social__link {
+  background-color: #790252;
+  color: #f0f0f0;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  display: flex; /* centering the icons in the circle */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* make it a circle */
+}
+
+.scroll {
+  /* this is to ensure it does not interfere or change the position of other elements */
+  position: absolute;
+  bottom: 20px;
+  left: 50%; /* this centres it */
+  transform: translateX(
+    -50%
+  ); /* but with position absolute, you have to use transform, translate it back, to centre it */
+}
+
+.scroll__icon {
+  /* this is to make a scroll button with an animation in it */
+  width: 20px;
+  height: 30px;
+  border: 2px solid #242424;
+  border-radius: 24px;
+  display: flex; /* this is to position the pseudo element inside the scroll__icon */
+  justify-content: center;
+  align-items: center;
+}
+
+/* now we target the after pseudo element, create animation  */
+
+.scroll__icon:after {
+  content: ""; /* because this is a pseudo element, we need to set the content, even if its nothing */
+  width: 4px;
+  height: 6px;
+  background-color: #242424;
+  border-radius: 2px;
+  animation: scroll 1000ms infinite alternate-reverse; /* to implement the animation, we place it in the pseudo element, with the name, duration, infinite so that it doesnt stop, and alternate reverse so that it goes smoothly from 0% to 100% instead of jumping from one extreme to the other */
+}
+
+/* creating an animation for the scroll__icon */
+
+@keyframes scroll {
+  0% {
+    /* this allows the scroll animation to go up 3px */
+    transform: translateY(3px);
+  }
+
+  100% {
+    /* this allows the scroll animation to go down 3px */
+    transform: translateY(-3px);
+  }
+}
+
+/* PROJECTS */
+
+.project {
+  margin-bottom: 135px;
+}
+
+.section__title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 60px;
+}
+
+.project__img {
+  width: 100%;
+  transition: all 450ms ease;
+}
+
+.project__wrapper {
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.45); /* we cant see it because its overflowing and at the moment, we're showing the overflow so we need to hide it to see the properties */
+  overflow: hidden; /* hide overflow using this */
+  transition: all 450ms ease;
+}
+
+.project__description {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  transform: translateY(100%);
+  opacity: 0; /* at the normal state or when we dont hover over the project__wrapper, we want it to be hidden */
+  transition: opacity 300ms, transform 450ms ease; /* this allows us to set the opacity duration and the transition of the project__description going up */
+  color: white;
+  max-width: 550px;
+}
+
+.project__wrapper--bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1c1d25;
+  opacity: 0; /* we want this to be 0 and only when we hover over the project__wrapper, it'll darken */
+  transition: all 450ms ease;
+}
+
+.project__wrapper:hover .project__wrapper--bg {
+  opacity: 0.7;
+}
+
+.project__description--title {
+  font-size: 40px;
+}
+
+.project__description--subtitle {
+  margin-top: 8px;
+}
+
+.project__description--para {
+  margin: 16px 0;
+}
+
+.project__description--link {
+  font-size: 20px;
+  margin-right: 16px;
+}
+
+.project__wrapper:hover .project__description {
+  /* when we hover project__wrapper, we wanna target the project__description */
+  opacity: 1; /* set opacity of the project__description back to normal */
+  transform: translateY(-50%); /* set the Y coordinate back to normal */
+}
+
+.project__wrapper:hover .project__img {
+  transform: scale(
+    1.07
+  ); /* this increases the size off the img when we hover over the project__wrapper */
+  filter: blur(
+    5px
+  ); /* this blurs the img by 5px when we hover over the project__wrapper */
+}
+
+/* FOOTER */
+
+footer {
+  position: relative;
+  background-color: #242424;
+  padding: 6% 0;
+}
+
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__anchor {
+  position: relative;
+}
+
+.footer__logo--img {
+  width: 200px;
+}
+
+.footer__logo--popper {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  font-weight: 700;
+  opacity: 0; /* when not hovering, we don't want it to be visible */
+  color: white;
+  transition: all 300ms ease;
+}
+
+.footer__social--list {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  justify-content: space-around;
+  margin: 28px 0;
+}
+
+.footer__social--link,
+.footer__copyright {
+  color: white;
+}
+
+/* MODAL */
+
+.modal {
+  position: absolute; /* we dont want it affecting anything on the page */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1100px;
+  height: 700px;
+  border-radius: 20px;
+  overflow: hidden; /* for when we make the halves */
+  display: flex; /* separate the halves next to each other */
+  visibility: hidden; /* by default we dont see anything, including the box-shadow */
+  z-index: -1;
+  transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal__half {
+  width: 50%; /* makes the width of each half 50% */
+  padding: 40px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 300ms ease-in;
+}
+
+.modal__about {
+  background-color: rgb(245, 245, 245);
+  transform: translateX(-110%);
+}
+
+.modal__contact {
+  background-color: #242424;
+  color: #f0f0f0;
+  transform: translateX(110%);
+}
+
+.modal__title {
+  font-size: 26px;
+}
+
+.modal__sub-title {
+  font-size: 14px;
+  margin: 12px 0 24px 0;
+}
+
+.modal__para {
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+
+.modal__languages {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal__language {
+  width: 25%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.modal__language:hover {
+  filter: brightness(80%);
+  transform: scale(0.9);
+}
+
+.language__name {
+  position: absolute;
+  bottom: -10px;
+  transform: scale(0);
+  transition: all 300ms ease;
+}
+
+.modal__language:hover .language__name {
+  transform: scale(1);
+}
+
+.modal__language--img {
+  width: 100%; /* set width 100% of the parent */
+}
+
+.modal__sub-title--contact {
+  font-size: 14px;
+  margin: 12px 0 24px 0;
+}
+
+.form__item {
+  margin-bottom: 20px;
+}
+
+.form__submit {
+  background-color: #790252;
+  border: 2px solid #790252;
+  color: #f0f0f0;
+  font-weight: bold;
+  width: 100%;
+  max-width: 240px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: all 300ms ease;
+}
+
+.form__submit:hover {
+  border-color: #f0f0f0;
+  background-color: transparent;
+}
+
+#contact__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__open .modal {
+  z-index: 60;
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+  visibility: visible;
+}
+
+.modal__open .modal__about,
+.modal__open .modal__contact {
+  transform: translateX(0%);
+}
+
+/* LOADER */
+
+.wrapper {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  background-color: #242424;
+  z-index: 1;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circling 0.5s alternate infinite ease;
+}
+
+@keyframes circling {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+.circle:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+.shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 0.5s alternate infinite ease;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}
+
+.shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+.modal__overlay--loading {
+  left: 37%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+}
+
+.modal__overlay {
+  background-color: #242424;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal__success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.modal__successful {
+  background-color: #4bb543;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 28px;
+}
+
+.modal__exit {
+  color: #f0f0f0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 36px;
+  z-index: 100;
+}
+
+.modal__overlay--visible {
+  z-index: 1;
+  display: flex;
+}
+
+/* dark theme */
+
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust,
+.dark-theme .header__para {
+  color: #f0f0f0;
+}
+
+.dark-theme section {
+  background-color: #242424;
+}
+
+.dark-theme #personal-logo {
+  filter: invert(0);
+}
+
+.dark-theme .mail__button {
+  background-color: #f0f0f0;
+  color: #242424;
+}
+
+.dark-theme .scroll__icon {
+  border-color: #f0f0f0;
+}
+
+.dark-theme .scroll__icon:after,
+.dark-theme .link__hover-effect--black::after {
+  background-color: #f0f0f0;
+}
+
+/* SHAPES */
+
+/* shapes on first row = height is 35vh */
+/* shapes on second row = height is 70vh */
+/* shapes on third row = height is 95vh */
+
+/* shapes on first column = width 5vw */
+/* shapes on second column = width 50vw */
+/* shapes on third column = width 80vw */
+
+.shape {
+  position: fixed;
+}
+
+.shape--0 {
+  top: 15vh;
+  left: 5vw;
+}
+.shape--1 {
+  top: 15vh;
+  left: 50vw;
+}
+.shape--2 {
+  top: 15vh;
+  left: 80vw;
+}
+.shape--3 {
+  top: 50vh;
+  left: 5vw;
+}
+.shape--4 {
+  top: 50vh;
+  left: 50vw;
+}
+.shape--5 {
+  top: 50vh;
+  left: 80vw;
+}
+.shape--6 {
+  top: 80vh;
+  left: 5vw;
+}
+.shape--7 {
+  top: 80vh;
+  left: 50vw;
+}
+.shape--8 {
+  top: 80vh;
+  left: 80vw;
+}
+
+/* MEDIA QUERIES */
+
+/* SMALL PHONES, TABLETS */
+
+@media (max-width: 768px) {
+  .title{
+    font-size: 80px;
+  }
+
+  .title{
+    font-size: 80px;
+  }
+
+  .header__para{
+    font-size: 20px;
+  }
+
+  .modal{
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+    width: 100%;
+    border-radius: 0;
+    flex-direction: column-reverse;
+  }
+
+  .modal__half{
+    width: 100%;
+  }
+
+  .project__description--link{
+    margin-bottom: 4px;
+  }
+
+  .project__description{
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .project__description--para{
+    font-size: 12px;
+    max-width: 260px;
+  }
+
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 480px){
+
+  .title{
+    font-size: 40px;
+  }
+
+  .title2{
+    font-size: 60px;
+  }
+
+  .header__para{
+    font-size: 18px;
+  }
+
+  .nav__link:first-child{
+    display: none;
+  }
+
+  .project__description{
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .project__description--para{
+    display: none;
+  }
+
+  .project__description--subtitle{
+    margin-bottom: 8px;
+  }
+
+  .mail__button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 50%;
+  border: none;
+  background-color: #242424;
+  position: fixed; /* this is to make sure the mail button stays at the bottom right corner of the website */
+  bottom: 16px;
+  right: 20px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
+  color: #f0f0f0;
+
+  .modal{
+  top: 0;
+  left: 0;
+  transform: none;
+  height: auto;
+  width: 100%;
+  border-radius: 0;
+  flex-direction: column-reverse;
+  }
+
+  .modal__half{
+    padding: 40px;
+  }
+
+  .footer__logo--img{
+    width: 100px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}
